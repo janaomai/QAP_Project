@@ -105,22 +105,22 @@ def get_analyte_label(analyte):
 
 def get_analyte_sublabel(analyte):
     sublabels = {
-        "D-Dimer": "RCPA: Median +/- 0.25 up to 0.5 then +/- 50%",
-        "CRP": "RCPA: Median +/- 0.8 up to 4.0 then +/- 20%",
-        "INR": "RCPA: Median +/- 0.3 up to 2.0 then +/- 15%",
-        "Troponin": "RCPA: Median+/- 10 up to 50 then +/- 20%",
-        "NT-ProBNP": "RCPA: Median +/- 25 up to 125pg/mL then +/- 20%",
-        "Haemoglobin": "RCPA: Median +/- 5 up to 100g/L then +/- 5%",
-        "HbA1c": "RCPA: Median +/- 4 up to 45 mmol/mol then +/- 8%",
-        "Glucose": "RCPA: Median +/- 0.5 up to 5.0 then +/- 10%",
-        "Ketones": "RCPA: Median +/- 0.5 up to 5.0 then +/- 10%"
+        "D-Dimer": "RCPA ALP: Median +/- 0.25 up to 0.5 then +/- 50%",
+        "CRP": "RCPA ALP: Median +/- 0.8 up to 4.0 then +/- 20%",
+        "INR": "RCPA ALP: Median +/- 0.3 up to 2.0 then +/- 15%",
+        "Troponin": "RCPA: ALP Median+/- 10 up to 50 then +/- 20%",
+        "NT-ProBNP": "RCPA ALP: Median +/- 25 up to 125pg/mL then +/- 20%",
+        "Haemoglobin": "RCPA ALP: Median +/- 5 up to 100g/L then +/- 5%",
+        "HbA1c": "RCPA ALP: Median +/- 4 up to 45 mmol/mol then +/- 8%",
+        "Glucose": "RCPA ALP: Median +/- 0.5 up to 5.0 then +/- 10%",
+        "Ketones": "RCPA ALP: Median +/- 0.5 up to 5.0 then +/- 10%"
     }
     return sublabels.get(analyte, "")
 
 def plot_histogram(site, results, analyte, lower_limit, upper_limit, median, site_result, interpretation, cycle, img_stream, format_string):
     numeric_results = [res[4] for res in results if isinstance(res[4], (int, float))]
 
-    fig, ax = plt.subplots(figsize=(6, 5))
+    fig, ax = plt.subplots(figsize=(7, 5))
 
     if analyte == "INR":
         min_bin = np.floor(lower_limit * 10) / 10
@@ -133,11 +133,11 @@ def plot_histogram(site, results, analyte, lower_limit, upper_limit, median, sit
         x_ticks = np.arange(lower_limit_rect_start, upper_limit_rect_end + bin_width, bin_width)
     else:
         max_result = max(max(numeric_results), upper_limit) * 1.05
-        step = upper_limit * 0.05
-        lower_limit_extension = lower_limit * 0.20  # 20% extension for non-INR analytes
+        step = upper_limit * 0.026
+        lower_limit_extension = lower_limit * 0.10  # 20% extension for non-INR analytes
         bins = np.arange(lower_limit - lower_limit_extension, max_result + step, step)
         lower_limit_rect_start = lower_limit - lower_limit_extension
-        upper_limit_rect_end = upper_limit + upper_limit * 0.20
+        upper_limit_rect_end = upper_limit + upper_limit * 0.10
         x_ticks = bins
 
     n, bins, patches = ax.hist(numeric_results, bins=bins, edgecolor='black')

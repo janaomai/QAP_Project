@@ -76,11 +76,11 @@ def run():
 
     bloodcell_units = {
         'wcc': 'x10⁹/L',
-        'neut': 'Percent (%)',
-        'lymph': 'Percent (%)',
-        'mono': 'Percent (%)',
-        'eosino': 'Percent (%)',
-        'baso': 'Percent (%)'
+        'neut': '%',
+        'lymph': '%',
+        'mono': '%',
+        'eosino': '%',
+        'baso': '%'
     }
 
     for bloodcell in bloodcells:
@@ -210,16 +210,16 @@ def run():
             your_result = row[bloodcell]
             if pd.isna(your_result):
                 row_cells[1].text = 'No submission'
-                row_cells[2].text = str(round(limits[bloodcell][0], 1))
-                row_cells[3].text = str(round(medians[bloodcell], 1))
-                row_cells[4].text = str(round(limits[bloodcell][1], 1))
+                row_cells[2].text = "{:2.f}"(limits[bloodcell][0])
+                row_cells[3].text = "{:2.f}"(medians[bloodcell])
+                row_cells[4].text = "{:2.f}"(limits[bloodcell][1])
                 row_cells[5].text = bloodcell_units[bloodcell]  
             else:
                 if bloodcell == 'wcc':
-                    row_cells[1].text = str(round(your_result, 1))
-                    row_cells[2].text = str(round(limits[bloodcell][0], 1))
-                    row_cells[3].text = str(round(medians[bloodcell], 1))
-                    row_cells[4].text = str(round(limits[bloodcell][1], 1))
+                    row_cells[1].text = "{:2.f}"(your_result)
+                    row_cells[2].text = "{:2.f}"(limits[bloodcell][0])
+                    row_cells[3].text = "{:2.f}"(medians[bloodcell])
+                    row_cells[4].text = "{:2.f}"(limits[bloodcell][1])
                     row_cells[5].text = bloodcell_units[bloodcell]  
                 else:
                     your_result_percent = round((your_result / row['wcc']) * 100, 1)

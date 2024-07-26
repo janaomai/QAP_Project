@@ -245,15 +245,15 @@ def run():
             your_result = site_data[analyte].values[0]
             if pd.isna(your_result):
                 row_cells[1].text = 'No submission'
-                row_cells[2].text = str(round(limits[analyte][0], 2))
-                row_cells[3].text = str(round(means[analyte], 2))
-                row_cells[4].text = str(round(limits[analyte][1], 2))
+                row_cells[2].text = "{:2.f}".format(limits[analyte][0])
+                row_cells[3].text = "{:2.f}".format(means[analyte])
+                row_cells[4].text = "{:2.f}".format(limits[analyte][1])
                 row_cells[5].text = y_labels[analyte]
             else:
-                row_cells[1].text = str(round(your_result, 2))
-                row_cells[2].text = str(round(limits[analyte][0], 2))
-                row_cells[3].text = str(round(means[analyte], 2))
-                row_cells[4].text = str(round(limits[analyte][1], 2))
+                row_cells[1].text = "{:2.f}".format(your_result)
+                row_cells[2].text = "{:2.f}".format(limits[analyte][0])
+                row_cells[3].text = "{:2.f}".format(means[analyte])
+                row_cells[4].text = "{:2.f}".format(limits[analyte][1])
                 row_cells[5].text = y_labels[analyte]
             # Interpretation based on limits
             if limits[analyte][0] <= your_result <= limits[analyte][1]:

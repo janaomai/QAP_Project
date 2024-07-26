@@ -176,18 +176,16 @@ def create_report(template_path, output_path, sites, metrics_data, analyte, cycl
         current_cycle_index = all_cycles.index(cycle)
 
         # Count consecutive no submissions starting from the selected cycle
-        reset_counter = False
+        consecutive_no_submissions = 0
         for i in range(current_cycle_index, -1, -1):
             if z_scores[site].get(all_cycles[i], "No submission") == "No submission":
-                if not reset_counter:
-                    no_submission_count += 1
+                consecutive_no_submissions += 1
             else:
-                reset_counter = True
-                no_submission_count = 0
+                break
 
-        no_submission_text = f"{no_submission_count}"
+        no_submission_text = f"{consecutive_no_submissions}"
         row_cells[1].text = no_submission_text
-        if no_submission_count >= 2:
+        if consecutive_no_submissions >= 2:
             risk_text = " - RISK: NON-COMPLIANCE 🚩"
             run = row_cells[1].paragraphs[0].add_run(risk_text)
             run.font.size = Pt(10)
