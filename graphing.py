@@ -31,7 +31,7 @@ def plot_z_scores(site, scores, img_stream):
     ax.set_xticklabels(all_cycles, rotation=45)
 
     ax.set_title(f"{site}'s QAP Performance", fontsize=10)
-    ax.set_xlabel("Cycle", fontsize=10)
+    ax.set_xlabel("Sample", fontsize=10)
     ax.set_ylabel("SD", fontsize=10)
 
     plt.tight_layout()
