@@ -1,2 +1,2 @@
-# QAP_Project
-#### Report Generator
+# EQA Report Generator
+#### QAP Project
