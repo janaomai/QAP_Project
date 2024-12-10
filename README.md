@@ -7,7 +7,7 @@ Each script contains the relevant information for each PoCT medical device.
 
 ## Table of Contents
 
-*Medical Devices and blood tests*
+*Medical Devices and blood tests:*
 
 1. **Blood gas and electrolytes (Epoc)**
 2. **Blood gas and alectrolytes (i-STAT)**
