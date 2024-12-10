@@ -477,5 +477,5 @@ def run():
 
         os.remove(plot_filename)
 
-        output_path = f'C:\\iCCnet QAP Program\\Output\POCT\\iSTAT_{site}_{sheet_name}_{today_date}.docx'
+        output_path = f'C:\\iSTAT_{site}_{sheet_name}_{today_date}.docx'
         doc.save(output_path)
