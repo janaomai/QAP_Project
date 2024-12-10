@@ -9,8 +9,8 @@ Each script contains the relevant information for each PoCT medical device.
 
 *Medical Devices and blood tests:*
 
-1. **Blood gas and electrolytes (Epoc)**
-2. **Blood gas and alectrolytes (i-STAT)**
-3. **Lipids, CRP, HbA1C (b101)**
-4. **WBC Differential (WBC Diff)**
+**1. Blood gas and electrolytes (Epoc)**
+**2. Blood gas and alectrolytes (i-STAT)**
+**3. Lipids, CRP, HbA1C (b101)**
+**4. WBC Differential (WBC Diff)**
    
