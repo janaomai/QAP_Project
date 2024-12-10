@@ -342,7 +342,7 @@ def run():
             ax.set_xticks([])
             ax.tick_params(axis='y', labelsize = 20)
 
-        output_dir = r"C:\iCCnet QAP Program\Output\POCT"
+        output_dir = r"C:\"
         plot_filename = os.path.join(output_dir, f'{site}_combined.png')
         plt.savefig(plot_filename, bbox_inches='tight')
         plt.close()
